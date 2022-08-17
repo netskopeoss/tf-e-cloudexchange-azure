@@ -1,0 +1,8 @@
+admin_username       = ""
+admin_ssh_key        = ""
+vnet_rg_name         = ""
+vnet_name            = ""
+snet_name            = ""
+jwt_secret           = ""
+maintenance_password = ""
+trusted_ip           = ""
