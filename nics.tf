@@ -1,4 +1,4 @@
-#Create VM NIC for each VM and Assign IP addresses.
+#Create VM NIC for the VM and Assign IP addresses.
 resource "azurerm_network_interface" "nic" {
   name                          = format("%s%s%s%s%s", var.env_prefix, "-", var.vm_prefix, "-", "nic")
   resource_group_name           = azurerm_resource_group.rg.name

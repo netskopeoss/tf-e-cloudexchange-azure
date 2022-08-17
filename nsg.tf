@@ -1,4 +1,4 @@
-#Create NSG for each VM
+#Create NSG for the VM
 resource "azurerm_network_security_group" "nsg" {
   name                = format("%s%s%s%s%s%s%s", var.env_prefix, "-", var.vm_prefix, "-", "nic", "-", "nsg")
   resource_group_name = azurerm_resource_group.rg.name
