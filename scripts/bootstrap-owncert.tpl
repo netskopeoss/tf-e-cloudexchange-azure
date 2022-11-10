@@ -12,7 +12,7 @@ sudo systemctl status docker
 sudo mkdir netskope && cd netskope
 sudo git clone https://github.com/netskopeoss/ta_cloud_exchange
 cd ta_cloud_exchange
-sudo python3 ./setup <<< $'n\n${tenant}\nhttps\n${port}\n${jwt}\n${password}\n${password}\nn\n${beta}\n'
+sudo python3 ./setup <<< $'1\nn\n${tenant}\nhttps\n${port}\n${jwt}\n${password}\n${password}\nn\n$'
 sudo echo ${cert} | base64 --decode | tee /netskope/ta_cloud_exchange/data/ssl_certs/cte_cert.crt > /dev/null
 sudo echo ${key}  | base64 --decode | tee /netskope/ta_cloud_exchange/data/ssl_certs/cte_cert_key.key > /dev/null
 sudo ./start

@@ -15,7 +15,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
     public_key = file(var.admin_ssh_key)
   }
   
-  custom_data = var.own_cert == "No" ? base64encode(templatefile("${path.root}/scripts/bootstrap-selfsigned.tpl", { tenant = var.tenant_name, port = var.ui_port, jwt = var.jwt_secret, password = var.maintenance_password, beta = var.beta_opt_in })) : base64encode(templatefile("${path.root}/scripts/bootstrap-owncert.tpl", { tenant = var.tenant_name, port = var.ui_port, jwt = var.jwt_secret, password = var.maintenance_password, beta = var.beta_opt_in, cert = filebase64("${path.root}/certificates/${var.ssl_cert}"), key= filebase64("${path.root}/certificates/${var.ssl_key}") }))
+  custom_data = var.own_cert == "No" ? base64encode(templatefile("${path.root}/scripts/bootstrap-selfsigned.tpl", { tenant = var.tenant_name, port = var.ui_port, jwt = var.jwt_secret, password = var.maintenance_password })) : base64encode(templatefile("${path.root}/scripts/bootstrap-owncert.tpl", { tenant = var.tenant_name, port = var.ui_port, jwt = var.jwt_secret, password = var.maintenance_password, cert = filebase64("${path.root}/certificates/${var.ssl_cert}"), key= filebase64("${path.root}/certificates/${var.ssl_key}") }))
   network_interface_ids = [
     azurerm_network_interface.nic.id
   ]
